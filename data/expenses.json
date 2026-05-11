@@ -1,0 +1,52 @@
+[
+  {
+    "id": "e1",
+    "title": "Figma Pro Subscription",
+    "amount": 1200,
+    "category": "Software",
+    "date": "2026-05-01T00:00:00.000Z",
+    "clientId": null,
+    "receiptNote": "Annual plan auto-renewed",
+    "expenseType": "Business"
+  },
+  {
+    "id": "e2",
+    "title": "Domain & Hosting — Sharma Dental",
+    "amount": 3500,
+    "category": "Software",
+    "date": "2026-05-02T00:00:00.000Z",
+    "clientId": "c1",
+    "receiptNote": "GoDaddy invoice #GD-2026-4421",
+    "expenseType": "Business"
+  },
+  {
+    "id": "e3",
+    "title": "Facebook Ads — Lead Campaign",
+    "amount": 2000,
+    "category": "Marketing",
+    "date": "2026-05-03T00:00:00.000Z",
+    "clientId": null,
+    "receiptNote": "May campaign for dental niche",
+    "expenseType": "Business"
+  },
+  {
+    "id": "e4",
+    "title": "Freelance Copywriter",
+    "amount": 1800,
+    "category": "Freelancer",
+    "date": "2026-05-05T00:00:00.000Z",
+    "clientId": "c1",
+    "receiptNote": "Paid via UPI to Akash Verma",
+    "expenseType": "Business"
+  },
+  {
+    "id": "e5",
+    "title": "Mechanical Keyboard",
+    "amount": 5500,
+    "category": "Hardware",
+    "date": "2026-05-07T00:00:00.000Z",
+    "clientId": null,
+    "receiptNote": "Keychron K6 from Amazon",
+    "expenseType": "Business"
+  }
+]

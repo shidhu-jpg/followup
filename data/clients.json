@@ -1,0 +1,98 @@
+[
+  {
+    "id": "c1",
+    "name": "Priya Sharma",
+    "businessName": "Sharma Dental Clinic",
+    "phone": "9876543210",
+    "email": "priya@sharmadental.com",
+    "projectType": "Dental",
+    "status": "Active",
+    "notes": "Wants appointment booking feature added. Very responsive over WhatsApp.",
+    "dateAdded": "2026-04-10T00:00:00.000Z",
+    "lastContactDate": "2026-04-28T00:00:00.000Z",
+    "nextFollowUpDate": "2026-05-05T00:00:00.000Z",
+    "followUpType": "Project Update",
+    "leadStage": null,
+    "amountDue": 15000,
+    "paymentDueDate": "2026-05-15T00:00:00.000Z",
+    "isPaid": false,
+    "followUpHistory": [
+      {
+        "id": "h1a",
+        "date": "2026-04-10T10:00:00.000Z",
+        "note": "Initial meeting. Agreed on dental clinic website with booking.",
+        "type": "note"
+      },
+      {
+        "id": "h1b",
+        "date": "2026-04-28T14:00:00.000Z",
+        "note": "Sent first draft. Client happy with design.",
+        "type": "contacted"
+      }
+    ]
+  },
+  {
+    "id": "c2",
+    "name": "Ravi Mehta",
+    "businessName": "Mehta Pharma",
+    "phone": "9123456780",
+    "email": "ravi@mehtapharma.in",
+    "projectType": "Website",
+    "status": "Lead",
+    "notes": "Referred by Priya. Wants e-commerce for medicine delivery. Budget TBD.",
+    "dateAdded": "2026-05-01T00:00:00.000Z",
+    "lastContactDate": "2026-05-01T00:00:00.000Z",
+    "nextFollowUpDate": "2026-05-08T00:00:00.000Z",
+    "followUpType": "Sales/Lead",
+    "leadStage": "Hot",
+    "amountDue": null,
+    "paymentDueDate": null,
+    "isPaid": false,
+    "followUpHistory": [
+      {
+        "id": "h2a",
+        "date": "2026-05-01T11:00:00.000Z",
+        "note": "First call. Very interested. Wants proposal by end of week.",
+        "type": "contacted"
+      }
+    ]
+  },
+  {
+    "id": "c3",
+    "name": "Sunita Rao",
+    "businessName": "Rao Multi-Speciality Clinic",
+    "phone": "9988776655",
+    "email": "sunita@raoclinic.com",
+    "projectType": "Clinic",
+    "status": "Awaiting Payment",
+    "notes": "Website completed. Waiting for final payment before handing over credentials.",
+    "dateAdded": "2026-03-15T00:00:00.000Z",
+    "lastContactDate": "2026-04-20T00:00:00.000Z",
+    "nextFollowUpDate": "2026-04-27T00:00:00.000Z",
+    "followUpType": "Invoice/Payment",
+    "leadStage": null,
+    "amountDue": 22000,
+    "paymentDueDate": "2026-04-30T00:00:00.000Z",
+    "isPaid": false,
+    "followUpHistory": [
+      {
+        "id": "h3a",
+        "date": "2026-03-15T09:00:00.000Z",
+        "note": "Project kicked off. 50% advance received.",
+        "type": "note"
+      },
+      {
+        "id": "h3b",
+        "date": "2026-04-15T16:00:00.000Z",
+        "note": "Delivered final website. Client approved.",
+        "type": "contacted"
+      },
+      {
+        "id": "h3c",
+        "date": "2026-04-20T10:00:00.000Z",
+        "note": "Sent invoice for remaining ₹22,000. No reply yet.",
+        "type": "contacted"
+      }
+    ]
+  }
+]

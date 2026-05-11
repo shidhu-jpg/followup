@@ -1,0 +1,18 @@
+[
+  {
+    "id": "i1",
+    "clientName": "Priya Sharma",
+    "clientId": "c1",
+    "amount": 15000,
+    "date": "2026-04-12T00:00:00.000Z",
+    "note": "50% advance for Sharma Dental website project"
+  },
+  {
+    "id": "i2",
+    "clientName": "Sunita Rao",
+    "clientId": "c3",
+    "amount": 22000,
+    "date": "2026-03-20T00:00:00.000Z",
+    "note": "50% advance for Rao Clinic website"
+  }
+]

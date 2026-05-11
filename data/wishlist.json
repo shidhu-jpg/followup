@@ -1,0 +1,29 @@
+[
+  {
+    "id": "w1",
+    "name": "Adobe Creative Cloud",
+    "estimatedCost": 5000,
+    "priority": "High",
+    "reason": "Need Illustrator and After Effects for motion graphics work",
+    "isPurchased": false,
+    "purchasedDate": null
+  },
+  {
+    "id": "w2",
+    "name": "Loom Pro Subscription",
+    "estimatedCost": 1500,
+    "priority": "Medium",
+    "reason": "For recording client walkthrough videos and demos",
+    "isPurchased": false,
+    "purchasedDate": null
+  },
+  {
+    "id": "w3",
+    "name": "External SSD 1TB",
+    "estimatedCost": 4500,
+    "priority": "Low",
+    "reason": "Backup storage for project files and assets",
+    "isPurchased": false,
+    "purchasedDate": null
+  }
+]
