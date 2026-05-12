@@ -1,15 +1,17 @@
 import { NextResponse } from 'next/server'
-import { readJson, writeJson, generateId } from '@/lib/jsonDb'
+import { readKv, writeKv, generateId } from '@/lib/kvDb'
 import { Income } from '@/lib/types'
 
+export const runtime = 'edge'
+
 export async function GET() {
-  const income = readJson<Income>('income.json')
+  const income = await readKv<Income>('income')
   return NextResponse.json(income)
 }
 
 export async function POST(request: Request) {
   const body = await request.json()
-  const income = readJson<Income>('income.json')
+  const income = await readKv<Income>('income')
   const newIncome: Income = {
     id: generateId(),
     clientName: body.clientName ?? '',
@@ -19,6 +21,6 @@ export async function POST(request: Request) {
     note: body.note ?? '',
   }
   income.push(newIncome)
-  writeJson('income.json', income)
+  await writeKv('income', income)
   return NextResponse.json(newIncome, { status: 201 })
 }

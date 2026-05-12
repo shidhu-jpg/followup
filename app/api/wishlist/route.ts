@@ -1,15 +1,17 @@
 import { NextResponse } from 'next/server'
-import { readJson, writeJson, generateId } from '@/lib/jsonDb'
+import { readKv, writeKv, generateId } from '@/lib/kvDb'
 import { WishlistItem } from '@/lib/types'
 
+export const runtime = 'edge'
+
 export async function GET() {
-  const items = readJson<WishlistItem>('wishlist.json')
+  const items = await readKv<WishlistItem>('wishlist')
   return NextResponse.json(items)
 }
 
 export async function POST(request: Request) {
   const body = await request.json()
-  const items = readJson<WishlistItem>('wishlist.json')
+  const items = await readKv<WishlistItem>('wishlist')
   const newItem: WishlistItem = {
     id: generateId(),
     name: body.name ?? '',
@@ -20,6 +22,6 @@ export async function POST(request: Request) {
     purchasedDate: null,
   }
   items.push(newItem)
-  writeJson('wishlist.json', items)
+  await writeKv('wishlist', items)
   return NextResponse.json(newItem, { status: 201 })
 }

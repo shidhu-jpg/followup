@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server'
-import { readJson, writeJson, generateId } from '@/lib/jsonDb'
+import { readKv, writeKv, generateId } from '@/lib/kvDb'
 import { Client, FollowUpHistoryEntry } from '@/lib/types'
 import { addDays } from '@/lib/dateUtils'
 
+export const runtime = 'edge'
+
 export async function GET(_req: Request, { params }: { params: { id: string } }) {
-  const clients = readJson<Client>('clients.json')
+  const clients = await readKv<Client>('clients')
   const client = clients.find(c => c.id === params.id)
   if (!client) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   return NextResponse.json(client)
@@ -12,11 +14,10 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
 
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   const body = await request.json()
-  const clients = readJson<Client>('clients.json')
+  const clients = await readKv<Client>('clients')
   const idx = clients.findIndex(c => c.id === params.id)
   if (idx === -1) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  // Handle special actions
   if (body._action === 'mark_contacted') {
     const note = body.note ?? 'Marked as contacted'
     const entry: FollowUpHistoryEntry = {
@@ -30,7 +31,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       lastContactDate: new Date().toISOString(),
       followUpHistory: [...clients[idx].followUpHistory, entry],
     }
-    writeJson('clients.json', clients)
+    await writeKv('clients', clients)
     return NextResponse.json(clients[idx])
   }
 
@@ -47,7 +48,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       nextFollowUpDate: addDays(days),
       followUpHistory: [...clients[idx].followUpHistory, entry],
     }
-    writeJson('clients.json', clients)
+    await writeKv('clients', clients)
     return NextResponse.json(clients[idx])
   }
 
@@ -62,21 +63,20 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       ...clients[idx],
       followUpHistory: [...clients[idx].followUpHistory, entry],
     }
-    writeJson('clients.json', clients)
+    await writeKv('clients', clients)
     return NextResponse.json(clients[idx])
   }
 
-  // General update
   const { _action, ...updates } = body
   clients[idx] = { ...clients[idx], ...updates }
-  writeJson('clients.json', clients)
+  await writeKv('clients', clients)
   return NextResponse.json(clients[idx])
 }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
-  const clients = readJson<Client>('clients.json')
+  const clients = await readKv<Client>('clients')
   const filtered = clients.filter(c => c.id !== params.id)
   if (filtered.length === clients.length) return NextResponse.json({ error: 'Not found' }, { status: 404 })
-  writeJson('clients.json', filtered)
+  await writeKv('clients', filtered)
   return NextResponse.json({ ok: true })
 }
